@@ -25,3 +25,6 @@
 	WHERE Title = "Sales Support Agent"
 
 5) SELECT DISTINCT "BillingCity" FROM Invoice
+
+6) SELECT * FROM Invoice 
+	WHERE "BillingCountry" = "Brazil"
