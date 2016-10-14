@@ -9,37 +9,50 @@ FROM    Customer
 WHERE Customer.Country IS NOT 'USA'
 ```
 
-2) SELECT Customer.FirstName || ' ' || Customer.LastName As Name,
+Provide a query only showing the Customers from Brazil.
+```
+SELECT Customer.FirstName || ' ' || Customer.LastName As Name,
                     Customer.CustomerId, 
                     Customer.Country
-            FROM    Customer
-            WHERE Customer.Country IS 'Brazil
+        FROM    Customer
+        WHERE Customer.Country IS 'Brazil
+```
 
-3) SELECT Customer.FirstName || ' ' || Customer.LastName As 'Name'
+Provide a query showing the Invoices of customers who are from Brazil. The resultant table should show the customer's full name, Invoice ID, Date of the invoice and billing country.
+```
+SELECT Customer.FirstName || ' ' || Customer.LastName As 'Name'
             Invoice.InvoiceId,
             Invoice.InvoiceDate,
             Invoice.BillingCountry,
-    FROM Invoice 
-    JOIN Customer ON Invoice.CustomerId = Customer.Customer.Id
-    WHERE Customer.Country = 'Brazil'
+        FROM Invoice 
+        JOIN Customer ON Invoice.CustomerId = Customer.Customer.Id
+        WHERE Customer.Country = 'Brazil'
+```
 
-4) SELECT FirstName || " " || LastName As "Name"
+Provide a query showing only the Employees who are Sales Agents.
+```
+SELECT FirstName || " " || LastName As "Name"
 	FROM Employee
 	WHERE Title = "Sales Support Agent"
+```
 
-5) SELECT DISTINCT "BillingCity" FROM Invoice
-
-6) SELECT * FROM Invoice 
-	WHERE "BillingCountry" = "Brazil"
-
-7) 
-
-
-Provide a query only showing the Customers from Brazil.
-Provide a query showing the Invoices of customers who are from Brazil. The resultant table should show the customer's full name, Invoice ID, Date of the invoice and billing country.
-Provide a query showing only the Employees who are Sales Agents.
 Provide a query showing a unique list of billing countries from the Invoice table.
+```
+SELECT DISTINCT "BillingCity" FROM Invoice
+```
+
 Provide a query showing the invoices of customers who are from Brazil.
+```
+SELECT * FROM Invoice 
+        WHERE "BillingCountry" = "Brazil"
+```
+
+
+
+
+
+
+
 Provide a query that shows the invoices associated with each sales agent. The resultant table should include the Sales Agent's full name.
 Provide a query that shows the Invoice Total, Customer name, Country and Sale Agent name for all invoices and customers.
 How many Invoices were there in 2009 and 2011? What are the respective total sales for each of those years?
