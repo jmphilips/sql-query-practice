@@ -60,9 +60,21 @@ SELECT * FROM Invoice
 ```
 
 
-7) Provide a query that shows the Invoice Total, Customer name, Country and Sale Agent name for all invoices and customers.
+7) Provide a query that shows the invoices associated with each sales agent. The resultant table should include the Sales Agent's full name.
+
+```
+SELECT Employee.FirstName || " " || Employee.LastName AS "Full Name", Invoice.* FROM Invoice
+        JOIN Customer ON Invoice.CustomerId == Customer.CustomerId
+        JOIN Employee ON Customer.SupportRepId == Employee.EmployeeId
+        WHERE Employee.Title == "Sales Support Agent";
+```
+
 
 8) Provide a query that shows the Invoice Total, Customer name, Country and Sale Agent name for all invoices and customers.
+```
+
+
+
 9) How many Invoices were there in 2009 and 2011? What are the respective total sales for each of those years?
 10) Looking at the InvoiceLine table, provide a query that COUNTs the number of line items for Invoice ID 37.
 11) Looking at the InvoiceLine table, provide a query that COUNTs the number of line items for each Invoice. HINT: GROUP BY
