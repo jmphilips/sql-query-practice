@@ -116,7 +116,17 @@ JOIN Track ON InvoiceLine.TrackId = Track.TrackId
 
 
 13) Provide a query that includes the purchased track name AND artist name with each invoice line item.
+
+```
+SELECT Track.Name, Artist.Name, InvoiceLine.InvoiceId FROM InvoiceLine 
+JOIN Track ON InvoiceLine.TrackId = Track.TrackId
+JOIN Album ON Track.AlbumId = Album.AlbumId
+JOIN Artist ON Artist.ArtistId = Album.ArtistId
+```
+
+
 14) Provide a query that shows the # of invoices per country. HINT: GROUP BY
+
 15) Provide a query that shows the total number of tracks in each playlist. The Playlist name should be include on the resultant table.
 16) Provide a query that shows all the Tracks, but displays no IDs. The resultant table should include the Album name, Media type and Genre.
 17) Provide a query that shows all Invoices but includes the # of invoice line items.
