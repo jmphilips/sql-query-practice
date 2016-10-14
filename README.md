@@ -1,7 +1,6 @@
 # sql-query-practice
 
 1. Provide a query showing Customers (just their full names, customer ID and country) who are not in the US.
-
 ```
 SELECT Customer.FirstName || ' ' || Customer.LastName As Name,
             Customer.CustomerId, 
@@ -9,10 +8,7 @@ SELECT Customer.FirstName || ' ' || Customer.LastName As Name,
 FROM    Customer
 WHERE Customer.Country IS NOT 'USA'
 ```
-
-
 2. Provide a query only showing the Customers from Brazil.
-
 ```
 SELECT Customer.FirstName || ' ' || Customer.LastName As Name,
                     Customer.CustomerId, 
@@ -20,10 +16,7 @@ SELECT Customer.FirstName || ' ' || Customer.LastName As Name,
         FROM    Customer
         WHERE Customer.Country IS 'Brazil
 ```
-
-
 3. Provide a query showing the Invoices of customers who are from Brazil. The resultant table should show the customer's full name, Invoice ID, Date of the invoice and billing country.
-
 ```
 SELECT Customer.FirstName || ' ' || Customer.LastName As 'Name'
             Invoice.InvoiceId,
@@ -33,8 +26,6 @@ SELECT Customer.FirstName || ' ' || Customer.LastName As 'Name'
         JOIN Customer ON Invoice.CustomerId = Customer.Customer.Id
         WHERE Customer.Country = 'Brazil'
 ```
-
-
 4. Provide a query showing only the Employees who are Sales Agents.
 
 ```
