@@ -101,6 +101,12 @@ SELECT COUNT(InvoiceLine.InvoiceId) FROM InvoiceLine WHERE InvoiceLine.InvoiceId
 
 
 11) Looking at the InvoiceLine table, provide a query that COUNTs the number of line items for each Invoice. HINT: GROUP BY
+```
+SELECT DISTINCT COUNT(*) FROM InvoiceLine 
+GROUP BY InvoiceLine.InvoiceId
+```
+
+
 12) Provide a query that includes the track name with each invoice line item.
 13) Provide a query that includes the purchased track name AND artist name with each invoice line item.
 14) Provide a query that shows the # of invoices per country. HINT: GROUP BY
