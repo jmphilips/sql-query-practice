@@ -143,7 +143,21 @@ GROUP BY Playlist.Name
 
 
 16) Provide a query that shows all the Tracks, but displays no IDs. The resultant table should include the Album name, Media type and Genre.
+
+```
+SELECT Track.Name, Track.Composer, Track.Milliseconds, Track.UnitPrice, Album.Title, MediaType.Name, Genre.Name  FROM Track
+JOIN Album ON Track.AlbumId = Album.AlbumId
+JOIN MediaType ON Track.MediaTypeId = MediaType.MediaTypeId
+JOIN Genre ON Track.GenreId = Genre.GenreId
+```
+
+
 17) Provide a query that shows all Invoices but includes the # of invoice line items.
+
+
+
+
+
 18) Provide a query that shows total sales made by each sales agent.
 19) Which sales agent made the most in sales in 2009?
 20) Which sales agent made the most in sales in 2010?
