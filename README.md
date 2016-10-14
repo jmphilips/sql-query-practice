@@ -1,13 +1,13 @@
 # sql-query-practice
 
 Provide a query showing Customers (just their full names, customer ID and country) who are not in the US.
-`
+```
 SELECT Customer.FirstName || ' ' || Customer.LastName As Name,
             Customer.CustomerId, 
             Customer.Country
 FROM    Customer
 WHERE Customer.Country IS NOT 'USA'
-`
+```
 
 2) SELECT Customer.FirstName || ' ' || Customer.LastName As Name,
                     Customer.CustomerId, 
