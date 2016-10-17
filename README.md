@@ -103,7 +103,7 @@ SELECT COUNT(InvoiceLine.InvoiceId) FROM InvoiceLine WHERE InvoiceLine.InvoiceId
 11) Looking at the InvoiceLine table, provide a query that COUNTs the number of line items for each Invoice. HINT: GROUP BY
 ```
 SELECT DISTINCT COUNT(*) FROM InvoiceLine 
-GROUP BY InvoiceLine.InvoiceId
+        GROUP BY InvoiceLine.InvoiceId
 ```
 
 
@@ -111,7 +111,7 @@ GROUP BY InvoiceLine.InvoiceId
 
 ```
 SELECT Track.Name, InvoiceLine.InvoiceId FROM InvoiceLine 
-JOIN Track ON InvoiceLine.TrackId = Track.TrackId
+        JOIN Track ON InvoiceLine.TrackId = Track.TrackId
 ```
 
 
@@ -119,9 +119,9 @@ JOIN Track ON InvoiceLine.TrackId = Track.TrackId
 
 ```
 SELECT Track.Name, Artist.Name, InvoiceLine.InvoiceId FROM InvoiceLine 
-JOIN Track ON InvoiceLine.TrackId = Track.TrackId
-JOIN Album ON Track.AlbumId = Album.AlbumId
-JOIN Artist ON Artist.ArtistId = Album.ArtistId
+        JOIN Track ON InvoiceLine.TrackId = Track.TrackId
+        JOIN Album ON Track.AlbumId = Album.AlbumId
+        JOIN Artist ON Artist.ArtistId = Album.ArtistId
 ```
 
 
@@ -129,7 +129,7 @@ JOIN Artist ON Artist.ArtistId = Album.ArtistId
 
 ```
 SELECT COUNT(*) FROM Invoice 
-GROUP BY Invoice.BillingCountry
+        GROUP BY Invoice.BillingCountry
 ```
 
 
@@ -137,8 +137,8 @@ GROUP BY Invoice.BillingCountry
 
 ```
 SELECT Playlist.Name, COUNT(Playlist.Name) AS "Total" FROM Playlist
-JOIN PlaylistTrack ON Playlist.PlaylistId = PlaylistTrack.PlaylistId
-GROUP BY Playlist.Name
+        JOIN PlaylistTrack ON Playlist.PlaylistId = PlaylistTrack.PlaylistId
+        GROUP BY Playlist.Name
 ```
 
 
@@ -146,16 +146,19 @@ GROUP BY Playlist.Name
 
 ```
 SELECT Track.Name, Track.Composer, Track.Milliseconds, Track.UnitPrice, Album.Title, MediaType.Name, Genre.Name  FROM Track
-JOIN Album ON Track.AlbumId = Album.AlbumId
-JOIN MediaType ON Track.MediaTypeId = MediaType.MediaTypeId
-JOIN Genre ON Track.GenreId = Genre.GenreId
+        JOIN Album ON Track.AlbumId = Album.AlbumId
+        JOIN MediaType ON Track.MediaTypeId = MediaType.MediaTypeId
+        JOIN Genre ON Track.GenreId = Genre.GenreId
 ```
 
 
 17) Provide a query that shows all Invoices but includes the # of invoice line items.
 
-
-
+```
+SELECT Invoice.*, Count(InvoiceLine.InvoiceLineId) AS '# of Line Items' FROM Invoice 
+        JOIN InvoiceLine ON Invoice.InvoiceId = InvoiceLine.InvoiceId 
+        GROUP BY Invoice.InvoiceId
+```
 
 
 18) Provide a query that shows total sales made by each sales agent.
