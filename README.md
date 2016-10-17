@@ -162,7 +162,16 @@ SELECT Invoice.*, Count(InvoiceLine.InvoiceLineId) AS '# of Line Items' FROM Inv
 
 
 18) Provide a query that shows total sales made by each sales agent.
+
+```
+SELECT Employee.FirstName || " " || Employee.LastName AS "Name", Title, Count(Invoice.Total) AS "Total Sales" From Employee 
+        JOIN Customer ON Employee.EmployeeId = Customer.SupportRepId 
+        JOIN Invoice ON Customer.CustomerId = Invoice.CustomerId 
+        WHERE Title = "Sales Support Agent" GROUP BY "Name"
+```
+
 19) Which sales agent made the most in sales in 2009?
+```
 20) Which sales agent made the most in sales in 2010?
 21) Which sales agent made the most in sales over all?
 22) Provide a query that shows the # of customers assigned to each sales agent.
