@@ -164,15 +164,34 @@ SELECT Invoice.*, Count(InvoiceLine.InvoiceLineId) AS '# of Line Items' FROM Inv
 18) Provide a query that shows total sales made by each sales agent.
 
 ```
-SELECT Employee.FirstName || " " || Employee.LastName AS "Name", Title, Count(Invoice.Total) AS "Total Sales" From Employee 
+SELECT Employee.FirstName || " " || Employee.LastName AS "Name", Title, Count(Invoice.Total) AS "Total Sales" FROM Employee 
         JOIN Customer ON Employee.EmployeeId = Customer.SupportRepId 
         JOIN Invoice ON Customer.CustomerId = Invoice.CustomerId 
         WHERE Title = "Sales Support Agent" GROUP BY "Name"
 ```
 
 19) Which sales agent made the most in sales in 2009?
+
 ```
+SELECT Employee.FirstName || " " || Employee.LastName AS "Name", Employee.Title, Count(Invoice.Total) AS "Total Sales" FROM Employee 
+        JOIN Customer ON Employee.EmployeeId = Customer.SupportRepId 
+        JOIN Invoice ON Customer.CustomerId = Invoice.CustomerId 
+        WHERE Employee.Title = "Sales Support Agent" AND Invoice.InvoiceDate LIKE "2009%" 
+        GROUP BY "Name" ORDER BY "Total Sales" DESC LIMIT 1
+```
+
+
 20) Which sales agent made the most in sales in 2010?
+
+```
+SELECT Employee.FirstName || " " || Employee.LastName AS "Name", Employee.Title, Count(Invoice.Total) AS "Total Sales" FROM Employee 
+        JOIN Customer ON Employee.EmployeeId = Customer.SupportRepId 
+        JOIN Invoice ON Customer.CustomerId = Invoice.CustomerId 
+        WHERE Employee.Title = "Sales Support Agent" AND Invoice.InvoiceDate LIKE "2010%" 
+        GROUP BY "Name" ORDER BY "Total Sales" DESC LIMIT 1
+```
+
+
 21) Which sales agent made the most in sales over all?
 22) Provide a query that shows the # of customers assigned to each sales agent.
 23) Provide a query that shows the total sales per country. Which country's customers spent the most?
